@@ -1,11 +1,13 @@
 /*rafec*/
 import React from 'react';
-import { FlexContent, Hero ,Sales, Stories} from './components';
-import { heroapi, popularsales,toprateslaes,highlight,sneaker,story } from './data/data.js';
+import { FlexContent, Hero ,Sales, Stories,Footer, Navbar} from './components';
+import { heroapi, popularsales,toprateslaes,highlight,sneaker,story,footerAPI } from './data/data.js';
+
 
 const App = () => {
   return (
     <>
+    <Navbar/>
       <main className='flex flex-col gap-16 relative'>
          <Hero heroapi={heroapi} />
          <Sales endpoint={popularsales} ifExists />
@@ -14,6 +16,7 @@ const App = () => {
          <FlexContent endpoint={sneaker} />
          <Stories story={story} />
       </main>
+      <Footer footerApi={footerAPI}/>
     </>
   )
 }
