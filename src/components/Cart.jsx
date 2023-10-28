@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectCartState, setCloseCart,selectCartItems, setClearCartItems, setGetTotals, selectTotalAmount, selectTotalQTY } from '../app/CartSlice.js';
 import CartCount from './cart/CartCount'
@@ -13,9 +13,12 @@ const Cart = () => {
   const totalAmount = useSelector(selectTotalAmount);
   const totalQTY = useSelector(selectTotalQTY);
 
-  useDispatch(() => {
-    dispatch(setGetTotals())
-  },[cartItems,dispatch])
+  // console.log(cartItems)
+
+  useEffect(() => {
+    dispatch(setGetTotals());
+  }, [cartItems, dispatch]);
+
 
 
   const onCartToggle = () => {
